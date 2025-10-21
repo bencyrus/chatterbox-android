@@ -7,6 +7,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.NavHost
@@ -16,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.foundation.layout.padding
 import io.glovee.chatterbox.Core.Security.TokenManager
 
 sealed class TabDestination(val route: String) {
@@ -61,7 +63,7 @@ fun RootTabView(tokenManager: TokenManager) {
             }
         }
     ) { padding ->
-        NavHost(navController, startDestination = TabDestination.Home.route, modifier = androidx.compose.ui.Modifier.padding(padding)) {
+        NavHost(navController, startDestination = TabDestination.Home.route, modifier = Modifier.padding(padding)) {
             composable(TabDestination.Home.route) {
                 HomeView(tokenManager)
             }
