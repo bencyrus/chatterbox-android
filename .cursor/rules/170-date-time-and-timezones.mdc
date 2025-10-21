@@ -1,0 +1,10 @@
+---
+description: Consistent date/time handling for Android.
+globs: ["**/*.kt"]
+alwaysApply: true
+---
+
+# Policy
+
+- Use ISO 8601 for API date/time; configure Gson adapters if needed.
+- Keep internal times in UTC; localize only for display.

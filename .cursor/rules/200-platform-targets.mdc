@@ -1,0 +1,10 @@
+---
+description: Platform targeting and compatibility policy for Android.
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Target
+
+- Target Android SDK 34; minSdk 26 (phones after 2023 are covered).
+- Prefer modern APIs aligned with the target (Compose, coroutines).

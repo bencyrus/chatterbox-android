@@ -1,0 +1,33 @@
+---
+description: Networking policy and magic-link login flow using HttpURLConnection and secure storage.
+globs: ["**/*.kt"]
+alwaysApply: true
+---
+
+# Transport & Configuration
+
+- Use `HttpURLConnection` with coroutines. No Retrofit/OkHttp.
+- Enforce HTTPS. Configure timeouts per endpoint.
+
+# Request Building
+
+- Centralize base URL and endpoints in Core Networking/Config.
+- Encode/validate request bodies (Gson with configured adapters if needed).
+- Add idempotency keys for retryable POSTs when applicable.
+
+# Response Handling
+
+- Decode with Gson; handle decoding failures explicitly.
+- Map HTTP errors to domain errors; include safe server error context (no PII) in logs.
+
+# Auth — Magic Link Flow
+
+- Endpoints assumed:
+  - Request link: POST identifier (email/phone)
+  - Verify token: POST token → returns access/refresh tokens
+- Store tokens via EncryptedSharedPreferences. Never log tokens. Refresh on 401 via token refresh flow.
+- Rate-limit requests; lockout mirrors server guidance.
+
+# Privacy
+
+- Redact sensitive fields in logs; avoid PII in logcat.

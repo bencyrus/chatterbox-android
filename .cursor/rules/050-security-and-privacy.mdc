@@ -1,0 +1,23 @@
+---
+description: Security, privacy, secrets, data handling, and permissions.
+globs: ["**/*.kt", "app/src/main/res/**", "App/**"]
+alwaysApply: true
+---
+
+# Data Protection
+
+- Store tokens/keys using AndroidX Security Crypto (EncryptedSharedPreferences).
+- Use Tink-backed defaults; do not implement custom crypto.
+
+# Permissions
+
+- Request microphone permission just-in-time with clear rationale (future recording feature).
+- Include required manifest usage descriptions.
+
+# PII & Logging
+
+- No PII or secrets in logs. Use `Log` sparingly with redaction.
+
+# Threat Awareness
+
+- For sensitive features, consider threat models during implementation (rules only).

@@ -1,0 +1,60 @@
+# Android/Gradle
+.gradle/
+**/build/
+/build/
+.gradletasknamecache
+
+# Local configuration
+local.properties
+keystore.properties
+
+# Signing keys (never commit)
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# Android Studio/IntelliJ
+.idea/
+*.iml
+.DS_Store
+
+# NDK / CMake
+.externalNativeBuild/
+.cxx/
+captures/
+
+# Outputs
+*.apk
+*.aab
+*.aar
+*.ap_
+*.hprof
+
+# Logs
+*.log
+
+# VSCode (if used)
+.vscode/
+
+# Gradle wrapper outputs (keep wrapper files)
+gradle/wrapper/dists/
+gradle/wrapper/gradle-wrapper.jar.lock
+
+# Signing directory (if present)
+.signing/
+
+# IntelliJ legacy files
+*.ipr
+*.iws
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Firebase (if used, contains credentials)
+**/google-services.json
+
+

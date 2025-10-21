@@ -1,0 +1,10 @@
+---
+description: Short, consistent microcopy rules for Android.
+globs: ["**/*.kt", "app/src/main/res/values/**"]
+alwaysApply: true
+---
+
+# Microcopy
+
+- Be concise and consistent; verbs-first labels (e.g., "Send link").
+- Follow Material Design tone and capitalization.

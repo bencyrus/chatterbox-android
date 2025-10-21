@@ -1,0 +1,15 @@
+---
+description: Accessibility (A11y) and localization (L10n) requirements for Android.
+globs: ["**/*.kt", "app/src/main/res/values/**"]
+alwaysApply: true
+---
+
+# Accessibility
+
+- Provide `contentDescription`, roles, and semantics.
+- Support large font sizes and TalkBack.
+
+# Localization
+
+- Localize all user-facing strings via `strings.xml`.
+- Use format strings with placeholders; avoid concatenation.

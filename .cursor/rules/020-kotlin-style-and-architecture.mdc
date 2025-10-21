@@ -1,0 +1,35 @@
+---
+description: Kotlin style, MVVM with Use Cases/Repositories, and modern Android practices.
+globs: ["**/*.kt"]
+alwaysApply: true
+---
+
+# Language & Concurrency
+
+- Kotlin + Coroutines/Flows.
+- Prefer value types; use classes only for identity/reference semantics.
+- Avoid `Any` and unsafe casts; model domain types precisely.
+- Prefer guard-clauses and early returns.
+
+# Architecture
+
+- MVVM + Use Cases + Repository pattern:
+  - View: Jetpack Compose `@Composable` functions only
+  - ViewModel: `androidx.lifecycle.ViewModel` with immutable state exposure
+  - Use Cases: orchestrate domain logic
+  - Repositories: abstract IO behind interfaces
+
+# State Management
+
+- Prefer `StateFlow`/`MutableStateFlow` or Compose state (`remember`, `mutableStateOf`).
+- Avoid LiveData unless required; document deviations.
+
+# Error Handling
+
+- Use typed errors (sealed classes/enums). Map lower-level errors to domain errors.
+- No silent catches; present user-safe messages.
+
+# Comments & Docs
+
+- Use KDoc for public APIs and non-obvious rationale.
+- No redundant comments; code should be self-explanatory.

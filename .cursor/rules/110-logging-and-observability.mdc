@@ -1,0 +1,15 @@
+---
+description: Logging, metrics, and diagnostics for Android.
+globs: ["**/*.kt"]
+alwaysApply: true
+---
+
+# Logging
+
+- Use `Log` with appropriate tags.
+- Redact sensitive data; avoid logging tokens or PII.
+
+# Metrics & Diagnostics
+
+- Add lightweight counters/timers as needed without third-party SDKs unless approved.
+- Prompt user before transmitting diagnostics off-device.

@@ -1,0 +1,4 @@
+-dontwarn **
+-keep class androidx.** { *; }
+-keep class com.google.gson.** { *; }
+-keep class kotlinx.** { *; }

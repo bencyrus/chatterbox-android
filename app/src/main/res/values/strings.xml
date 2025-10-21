@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Configuration -->
+    <string name="api_base_url">https://api.glovee.io</string>
+    <string name="universal_link_hosts">glovee.io</string>
+    <string name="magic_link_path">/auth/magic</string>
+
+    <!-- Tabs -->
+    <string name="tabs_home">Home</string>
+    <string name="tabs_settings">Settings</string>
+
+    <!-- Login -->
+    <string name="login_title">Login</string>
+    <string name="login_identifier_placeholder">Email or phone</string>
+    <string name="login_request_link">Send sign-in link</string>
+    <string name="login_link_sent_hint">We\'ll send a magic link via email or SMS.</string>
+
+    <!-- Home -->
+    <string name="home_title">Home</string>
+    <string name="home_latest_jwt">Latest JWT</string>
+    <string name="home_no_token">No token yet</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_logout">Log out</string>
+
+    <!-- Errors -->
+    <string name="errors_missing_identifier">Enter your email or phone</string>
+    <string name="errors_request_failed">Could not send code. Try again.</string>
+
+    <!-- A11y -->
+    <string name="a11y_identifier_field">Identifier</string>
+    <string name="a11y_error">Error</string>
+    <string name="a11y_logout">Log out</string>
+</resources>

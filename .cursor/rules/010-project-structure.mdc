@@ -1,0 +1,32 @@
+---
+description: Enforce clean, modular Android project structure and naming.
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Directory Layout (to be created during implementation)
+
+- `app/` — Android app module
+- `app/src/main/java/io/glovee/chatterbox/`
+  - `App/` — App entry, Activity, composition root
+  - `Core/` — Networking, Security, Config, Logging, Utilities
+  - `Features/` — Feature modules: Auth, Recording, etc.
+  - `UI/` — Reusable components, theme, modifiers
+- `app/src/main/res/` — Assets, localized strings, themes
+- `docs/` — Documentation
+- `tests/` — Unit tests mirroring structure
+
+# Naming
+
+- Types: PascalCase; methods/vars: camelCase; booleans prefixed with `is`/`has`/`should`.
+- File names mirror primary type and purpose.
+
+# Modularity
+
+- Features contain `Models/`, `Repositories/`, `UseCases/`, `ViewModel/`, `View/` where applicable.
+- No circular dependencies. Cross-feature usage via `Core` abstractions or coordinators.
+
+# Ownership
+
+- Business logic in Use Cases and Repositories, not Views.
+- Composables are declarative and bind-only. Keep Composables small.

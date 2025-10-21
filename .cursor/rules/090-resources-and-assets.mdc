@@ -1,0 +1,17 @@
+---
+description: Assets, strings, and resource hygiene for Android.
+globs: ["app/src/main/res/**"]
+alwaysApply: true
+---
+
+# Assets
+
+- Prefer Material icons and vector drawables; prefix custom assets consistently.
+
+# Strings
+
+- Keep `strings.xml` organized; no hard-coded user-facing strings in code.
+
+# Configuration
+
+- Do not commit secrets. Use environment-specific configuration; document values during implementation (rule only).
