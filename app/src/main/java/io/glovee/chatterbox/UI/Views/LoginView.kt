@@ -1,7 +1,11 @@
 package io.glovee.chatterbox.UI.Views
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -23,6 +27,7 @@ fun LoginView(viewModel: AuthViewModel) {
     val identifier by viewModel.identifier.collectAsState()
     val isRequesting by viewModel.isRequesting.collectAsState()
     val errorMessageKey by viewModel.errorMessage.collectAsState()
+    val cooldown by viewModel.cooldownSeconds.collectAsState()
 
     Column(
         modifier = Modifier
@@ -37,15 +42,21 @@ fun LoginView(viewModel: AuthViewModel) {
                 value = identifier,
                 onValueChange = viewModel::updateIdentifier,
                 label = { Text(Strings.Login.identifierPlaceholder(ctx)) },
-                modifier = Modifier.semantics { contentDescription = Strings.A11y.identifierField(ctx) }
+                modifier = Modifier.semantics {
+                    contentDescription = Strings.A11y.identifierField(ctx)
+                }
             )
-            Button(onClick = { viewModel.requestMagicLink() }, enabled = !isRequesting) {
+            Button(
+                onClick = { viewModel.requestMagicLink() },
+                enabled = !isRequesting && cooldown == 0
+            ) {
                 Text(Strings.Login.requestLink(ctx))
             }
         }
         if (errorMessageKey.isNotEmpty()) {
             val msg = when (errorMessageKey) {
                 "errors.missing_identifier" -> Strings.Errors.missingIdentifier(ctx)
+                "errors.invalid_magic_link" -> Strings.Errors.invalidMagicLink(ctx)
                 else -> Strings.Errors.requestFailed(ctx)
             }
             Text(
@@ -55,11 +66,19 @@ fun LoginView(viewModel: AuthViewModel) {
                 modifier = Modifier.semantics { contentDescription = Strings.A11y.error(ctx) }
             )
         }
-        Text(
-            Strings.Login.linkSentHint(ctx),
-            style = MaterialTheme.typography.bodySmall,
-            color = Color.Gray
-        )
+        if (cooldown > 0) {
+            Text(
+                Strings.Login.cooldownMessage(ctx, cooldown),
+                style = MaterialTheme.typography.bodySmall,
+                color = Color.Gray
+            )
+        } else {
+            Text(
+                Strings.Login.linkSentHint(ctx),
+                style = MaterialTheme.typography.bodySmall,
+                color = Color.Gray
+            )
+        }
         Spacer(Modifier.weight(1f))
     }
 }

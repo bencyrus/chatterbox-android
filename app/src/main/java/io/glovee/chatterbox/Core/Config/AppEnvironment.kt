@@ -11,6 +11,9 @@ class AppEnvironment(context: Context) {
     val universalLinkAllowedHosts: Set<String>
     val magicLinkPath: String
 
+    // UX: cooldown seconds between magic-link requests
+    val magicLinkCooldownSeconds: Int
+
     val newAccessTokenHeaderOut: String = "X-New-Access-Token"
     val newRefreshTokenHeaderOut: String = "X-New-Refresh-Token"
 
@@ -27,13 +30,24 @@ class AppEnvironment(context: Context) {
 
         baseUrl = res.getString(baseUrlStr)
         val hostsCsv = res.getString(hostsStrId)
-        val parsedHosts = hostsCsv.split(',').map { it.trim().lowercase() }.filter { it.isNotEmpty() }
+        val parsedHosts =
+            hostsCsv.split(',').map { it.trim().lowercase() }.filter { it.isNotEmpty() }
         require(parsedHosts.isNotEmpty()) { "universal_link_hosts must contain at least one hostname" }
         universalLinkAllowedHosts = parsedHosts.toSet()
 
         val magicRaw = res.getString(magicPathId).trim()
         require(magicRaw.isNotEmpty() && magicRaw.startsWith("/")) { "magic_link_path must start with '/'" }
         magicLinkPath = magicRaw
+
+        // Optional cooldown configuration; default to 60 seconds if absent/invalid
+        val cooldownId = res.getIdentifier("magic_link_cooldown_seconds", "integer", pkg)
+        magicLinkCooldownSeconds = if (cooldownId != 0) {
+            try {
+                res.getInteger(cooldownId).coerceAtLeast(0)
+            } catch (_: Exception) {
+                60
+            }
+        } else 60
     }
 
     fun isValidMagicLink(uri: Uri): Boolean {

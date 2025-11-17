@@ -17,7 +17,7 @@ interface TokenSink {
     fun clearTokens()
 }
 
-class TokenManager(context: Context): TokenProvider, TokenSink {
+class TokenManager(context: Context) : TokenProvider, TokenSink {
     private val prefs = run {
         val masterKey = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)

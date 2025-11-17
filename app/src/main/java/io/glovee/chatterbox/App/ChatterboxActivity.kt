@@ -1,11 +1,15 @@
 package io.glovee.chatterbox.App
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
-import android.content.SharedPreferences
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.google.gson.Gson
 import io.glovee.chatterbox.Core.Config.AppEnvironment
 import io.glovee.chatterbox.Core.Networking.APIClient
@@ -14,14 +18,10 @@ import io.glovee.chatterbox.Features.Auth.Repositories.PostgrestAuthRepository
 import io.glovee.chatterbox.Features.Auth.UseCases.LoginWithMagicTokenUseCase
 import io.glovee.chatterbox.Features.Auth.UseCases.RequestMagicLinkUseCase
 import io.glovee.chatterbox.Features.Auth.ViewModel.AuthViewModel
-import io.glovee.chatterbox.UI.Views.RootTabView
 import io.glovee.chatterbox.UI.Views.LoginView
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.remember
+import io.glovee.chatterbox.UI.Views.RootTabView
 
-class ChatterboxActivity: ComponentActivity() {
+class ChatterboxActivity : ComponentActivity() {
     private lateinit var tokenManager: TokenManager
     private lateinit var env: AppEnvironment
     private var tokenListener: SharedPreferences.OnSharedPreferenceChangeListener? = null

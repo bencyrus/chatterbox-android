@@ -14,6 +14,7 @@
     <string name="login_identifier_placeholder">Email or phone</string>
     <string name="login_request_link">Send sign-in link</string>
     <string name="login_link_sent_hint">We\'ll send a magic link via email or SMS.</string>
+    <string name="login_cooldown_message">You can request another in %1$ds</string>
 
     <!-- Home -->
     <string name="home_title">Home</string>
@@ -27,6 +28,7 @@
     <!-- Errors -->
     <string name="errors_missing_identifier">Enter your email or phone</string>
     <string name="errors_request_failed">Could not send code. Try again.</string>
+    <string name="errors_invalid_magic_link">This sign-in link has already been used or expired.</string>
 
     <!-- A11y -->
     <string name="a11y_identifier_field">Identifier</string>

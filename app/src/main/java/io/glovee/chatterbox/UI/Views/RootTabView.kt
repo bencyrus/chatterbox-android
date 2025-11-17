@@ -1,5 +1,9 @@
 package io.glovee.chatterbox.UI.Views
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -14,15 +18,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.foundation.layout.padding
 import io.glovee.chatterbox.Core.Security.TokenManager
 
 sealed class TabDestination(val route: String) {
-    data object Home: TabDestination("home")
-    data object Settings: TabDestination("settings")
+    data object Home : TabDestination("home")
+    data object Settings : TabDestination("settings")
 }
 
 @Composable
@@ -41,12 +41,20 @@ fun RootTabView(tokenManager: TokenManager) {
                         TabDestination.Home -> Strings.Tabs.home(ctx)
                         TabDestination.Settings -> Strings.Tabs.settings(ctx)
                     }
-                    val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
+                    val selected =
+                        currentDestination?.hierarchy?.any { it.route == item.route } == true
                     NavigationBarItem(
                         icon = {
                             when (item) {
-                                TabDestination.Home -> Icon(Icons.Default.Home, contentDescription = label)
-                                TabDestination.Settings -> Icon(Icons.Default.Settings, contentDescription = label)
+                                TabDestination.Home -> Icon(
+                                    Icons.Default.Home,
+                                    contentDescription = label
+                                )
+
+                                TabDestination.Settings -> Icon(
+                                    Icons.Default.Settings,
+                                    contentDescription = label
+                                )
                             }
                         },
                         label = { Text(label) },
@@ -63,7 +71,11 @@ fun RootTabView(tokenManager: TokenManager) {
             }
         }
     ) { padding ->
-        NavHost(navController, startDestination = TabDestination.Home.route, modifier = Modifier.padding(padding)) {
+        NavHost(
+            navController,
+            startDestination = TabDestination.Home.route,
+            modifier = Modifier.padding(padding)
+        ) {
             composable(TabDestination.Home.route) {
                 HomeView(tokenManager)
             }

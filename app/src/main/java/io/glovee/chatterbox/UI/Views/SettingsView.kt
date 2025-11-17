@@ -1,7 +1,11 @@
 package io.glovee.chatterbox.UI.Views
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -25,8 +29,14 @@ fun SettingsView(tokenManager: TokenManager) {
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Spacer(Modifier.weight(1f))
-        Button(onClick = { tokenManager.clearTokens() }, modifier = Modifier.semantics { contentDescription = Strings.A11y.logout(ctx) }) {
-            Text(Strings.Settings.logout(ctx), color = Color.Red, style = MaterialTheme.typography.bodyMedium)
+        Button(
+            onClick = { tokenManager.clearTokens() },
+            modifier = Modifier.semantics { contentDescription = Strings.A11y.logout(ctx) }) {
+            Text(
+                Strings.Settings.logout(ctx),
+                color = Color.Red,
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
         Spacer(Modifier.weight(1f))
     }
