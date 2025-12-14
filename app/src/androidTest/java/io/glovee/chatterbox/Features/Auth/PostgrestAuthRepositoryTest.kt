@@ -1,12 +1,12 @@
-package io.glovee.chatterbox.Features.Auth
+package com.chatterboxtalk.Features.Auth
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.gson.Gson
-import io.glovee.chatterbox.Core.Config.AppEnvironment
-import io.glovee.chatterbox.Core.Networking.HTTPClient
-import io.glovee.chatterbox.Core.Security.AuthTokens
-import io.glovee.chatterbox.Features.Auth.Repositories.AuthError
-import io.glovee.chatterbox.Features.Auth.Repositories.PostgrestAuthRepository
+import com.chatterboxtalk.Core.Config.AppEnvironment
+import com.chatterboxtalk.Core.Networking.HTTPClient
+import com.chatterboxtalk.Core.Security.AuthTokens
+import com.chatterboxtalk.Features.Auth.Repositories.AuthError
+import com.chatterboxtalk.Features.Auth.Repositories.PostgrestAuthRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

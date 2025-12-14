@@ -1,13 +1,13 @@
-package io.glovee.chatterbox.Features.Auth
+package com.chatterboxtalk.Features.Auth
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.gson.Gson
-import io.glovee.chatterbox.Core.Config.AppEnvironment
-import io.glovee.chatterbox.Core.Networking.HTTPClient
-import io.glovee.chatterbox.Features.Auth.Repositories.PostgrestAuthRepository
-import io.glovee.chatterbox.Features.Auth.UseCases.LoginWithMagicTokenUseCase
-import io.glovee.chatterbox.Features.Auth.UseCases.RequestMagicLinkUseCase
-import io.glovee.chatterbox.Features.Auth.ViewModel.AuthViewModel
+import com.chatterboxtalk.Core.Config.AppEnvironment
+import com.chatterboxtalk.Core.Networking.HTTPClient
+import com.chatterboxtalk.Features.Auth.Repositories.PostgrestAuthRepository
+import com.chatterboxtalk.Features.Auth.UseCases.LoginWithMagicTokenUseCase
+import com.chatterboxtalk.Features.Auth.UseCases.RequestMagicLinkUseCase
+import com.chatterboxtalk.Features.Auth.ViewModel.AuthViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
@@ -21,7 +21,8 @@ class AuthViewModelCooldownTest {
     fun requestMagicLink_startsCooldown_andPreventsImmediateReRequest() = runBlocking {
         val context =
             androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
-        val env = object : AppEnvironment(context) {}
+        // Use the real AppEnvironment; no need to subclass it in this test.
+        val env = AppEnvironment(context)
         val fakeClient = object : HTTPClient {
             override suspend fun <T : Any> postJson(
                 path: String,

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Configuration -->
-    <string name="api_base_url">https://api.glovee.io</string>
-    <string name="universal_link_hosts">glovee.io</string>
+    <string name="api_base_url">https://api.chatterboxtalk.com</string>
+    <string name="universal_link_hosts">chatterboxtalk.com</string>
     <string name="magic_link_path">/auth/magic</string>
 
     <!-- Tabs -->
@@ -15,6 +15,7 @@
     <string name="login_request_link">Send sign-in link</string>
     <string name="login_link_sent_hint">We\'ll send a magic link via email or SMS.</string>
     <string name="login_cooldown_message">You can request another in %1$ds</string>
+    <string name="login_open_support_page">Open Support Page</string>
 
     <!-- Home -->
     <string name="home_title">Home</string>
@@ -26,6 +27,7 @@
     <string name="settings_logout">Log out</string>
 
     <!-- Errors -->
+    <string name="errors_sign_in_error_title">Sign In Error</string>
     <string name="errors_missing_identifier">Enter your email or phone</string>
     <string name="errors_request_failed">Could not send code. Try again.</string>
     <string name="errors_invalid_magic_link">This sign-in link has already been used or expired.</string>
@@ -34,4 +36,8 @@
     <string name="a11y_identifier_field">Identifier</string>
     <string name="a11y_error">Error</string>
     <string name="a11y_logout">Log out</string>
+
+    <!-- Common -->
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
 </resources>

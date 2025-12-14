@@ -7,7 +7,7 @@
         android:label="Chatterbox"
         android:theme="@style/Theme.Chatterbox">
         <activity
-            android:name=".App.ChatterboxActivity"
+            android:name=".app.ChatterboxActivity"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="glovee.io"
+                    android:host="chatterboxtalk.com"
                     android:pathPrefix="/auth/magic"
                     android:scheme="https" />
             </intent-filter>

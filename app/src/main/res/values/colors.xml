@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared palette tokens (keep aligned with iOS DesignSystem.swift) -->
+    <color name="chatterbox_beige">#F7E4D6</color>
+    <color name="chatterbox_dark_beige">#E5D2C4</color>
+    <color name="chatterbox_sand">#EEEEE6</color>
+
+    <!-- Page background token:
+         iOS uses AppColors.beige.opacity(0.4) (composited over system background).
+         Pre-composited result of beige@40% over white ≈ #FCF5F0.
+    -->
+    <color name="chatterbox_page_background">#FCF5F0</color>
+</resources>

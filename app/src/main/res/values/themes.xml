@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Chatterbox" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
-        <item name="android:navigationBarColor">?attr/colorSurface</item>
+    <style name="Theme.Chatterbox" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Match iOS login background behind system bars too -->
+        <item name="android:windowBackground">@color/chatterbox_page_background</item>
+        <item name="android:statusBarColor">@color/chatterbox_page_background</item>
+        <item name="android:navigationBarColor">@color/chatterbox_page_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>
