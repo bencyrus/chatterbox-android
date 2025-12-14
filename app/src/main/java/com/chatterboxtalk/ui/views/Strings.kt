@@ -5,8 +5,11 @@ import com.chatterboxtalk.R
 
 object Strings {
     object Tabs {
+        fun history(ctx: Context) = ctx.getString(R.string.tabs_history)
+        fun subjects(ctx: Context) = ctx.getString(R.string.tabs_subjects)
         fun home(ctx: Context) = ctx.getString(R.string.tabs_home)
         fun settings(ctx: Context) = ctx.getString(R.string.tabs_settings)
+        fun debug(ctx: Context) = ctx.getString(R.string.tabs_debug)
     }
 
     object Login {

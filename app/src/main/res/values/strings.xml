@@ -6,8 +6,11 @@
     <string name="magic_link_path">/auth/magic</string>
 
     <!-- Tabs -->
+    <string name="tabs_history">History</string>
+    <string name="tabs_subjects">Subjects</string>
     <string name="tabs_home">Home</string>
     <string name="tabs_settings">Settings</string>
+    <string name="tabs_debug">Debug</string>
 
     <!-- Login -->
     <string name="login_title">Login</string>

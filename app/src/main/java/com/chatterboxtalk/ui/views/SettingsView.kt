@@ -29,7 +29,7 @@ fun SettingsView(tokenManager: TokenManager) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppColors.Sand)
+            .background(AppColors.PageBackground)
             .padding(AppSpacing.lg),
         verticalArrangement = Arrangement.spacedBy(AppSpacing.lg)
     ) {

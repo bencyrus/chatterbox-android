@@ -21,15 +21,15 @@ import com.chatterboxtalk.ui.theme.AppSpacing
 import com.chatterboxtalk.ui.theme.AppTypography
 
 /**
- * Android HomeView using consistent design system.
+ * Android SubjectsView (formerly HomeView) using consistent design system.
  */
 @Composable
-fun HomeView(tokenManager: TokenManager) {
+fun SubjectsView(tokenManager: TokenManager) {
     val ctx = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppColors.Sand)
+            .background(AppColors.PageBackground)
             .padding(AppSpacing.md)
     ) {
         Text(
